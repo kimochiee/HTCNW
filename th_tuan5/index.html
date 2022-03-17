@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ⋆ {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url(https://i-vnexpress.vnecdn.net/2019/07/30/anh-thien-nhien-dep-thang-7-1564483719_680x0.jpg);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .wrapper {
+            padding: 0 auto;
+            margin: 0 auto;
+            max-width: 1089px;
+        }
+
+        .top-menu {
+            width: 100%;
+            height: 50px;
+            background-color: pink;
+        }
+
+        .menu {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .menu li {
+            height: 100%;
+            width: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .menu li:hover {
+            background-color: black;
+        }
+
+        li:hover a {
+            color: white;
+        }
+
+        .menu li a {
+            text-transform: uppercase;
+        }
+
+        .menu li:nth-child(3) {
+            position: relative;
+        }
+
+        .menu li:nth-child(3):hover > .sub-menu {
+            display: block;
+        }
+
+        .sub-menu {
+            position: absolute;
+            display: none;
+            top: 100%;
+            left: 0;
+            padding: 0;
+            background-color: brown;
+        }
+
+        .sub-menu li {
+            padding: 10px 0;
+        }
+
+        #txtEmail {
+            border-radius: 5px;
+            padding: 3px;
+        }
+
+        header {
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url(https://meta.vn/Data/image/2022/01/13/anh-dep-thien-nhien-3.jpg);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        header p {
+            font-size: 50px;
+            color: black;
+        }
+
+        header p:hover {
+            transform: rotate(30deg);
+        }
+
+        .container {
+            width: 100%;
+            height: 400px;
+            display: flex;
+        }
+
+        .menu-left {
+            width: 30%;
+            height: 100%;
+            background-color: yellow;
+        }
+
+        .menu-left h2 {
+            margin: 0;
+        }
+
+        .menu-left article {
+            width: 100%;
+            height: calc(100% / 3);
+        }
+
+        .menu-left article img {
+            width: 100%;
+            height: calc(100% - 27px);
+        }
+
+        .content {
+            width: 70%;
+            height: 100%;
+            background-color: white;
+            text-align: center;
+        }
+
+        fieldset div {
+            margin: 30px 0;
+        }
+
+        footer {
+            width: 100%;
+            height: 130px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="top-menu">
+            <ul class="menu">
+                <li><a href="#">home</a></li>
+                <li><a href="#">service</a></li>
+                <li><a href="#">contact
+                    <ul class="sub-menu">
+                        <li><a href="#">phone</a></li>
+                        <li><a href="#">internet</a></li>
+                        <li><a href="#">tv</a></li>
+                    </ul>
+                </a></li>              
+                <li><a href="#">about</a></li>
+                <li><a href="#">help</a></li>
+                <span>
+                    <form action="" method="post">
+                        <label for="email">email: </label>
+                        <input type="email" name="txtEmail" id="txtEmail" required placeholder="nhập email" minlength="30">
+                        <input type="submit" value="go" id="btnGo">
+                    </form>
+                </span>
+            </ul>
+        </div>
+        <header>
+            <p>game show</p>
+        </header>
+        <div class="container">
+            <div class="menu-left">
+                <article>
+                    <h2>The Thao</h2>
+                    <img src="https://cacnuoc.vn/wp-content/uploads/2021/06/mon-the-thao-pho-bien-nhat-1024x576.jpg">
+                </article>
+                <article>
+                    <h2>Hoc Tap</h2>
+                    <img src="https://diem10cong.edu.vn/image/catalog/cackhoahoc/ky-nang-hoc-tap-diem-10-cong.jpg">
+                </article>
+                <article>
+                    <h2>Mua He Xanh</h2>
+                    <img src="https://upt.edu.vn/wp-content/uploads/2020/05/thumbnailwebsite-01.jpg">
+                </article>
+            </div>
+            <div class="content">
+                <h2>Đăng Ký Danh Sách</h2>
+                <form action="dangky.php" method="post">
+                    <fieldset>
+                        <legend>Thông Tin Của Bạn</legend>
+                        <div>
+                            <label for="txtHT">Ho ten:</label>
+                            <input type="text" name="txtHT" id="txtHT" required placeholder="Nhap ho ten" minlength="20">
+                        </div>
+                        <div>
+                            <label for="lblGioiTinh">Gioi tinh:</label>
+                            <input type="radio" name="gioitinh" id="radNam" value="nam">
+                            <label for="radNam">nam</label>
+                            <input type="radio" name="gioitinh" id="radNu" value="nu">
+                            <label for="radNu">nu</label>
+                        </div>
+                        <div>
+                            <label for="ngaysinh">Ngay sinh</label>
+                            <input type="date" name="txtDate" id="txtDate" required placeholder="ngay sinh" minlength="20" pattern="dd/mm/yyyy">
+                        </div>
+                        <input type="submit" value="go">
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+        <footer></footer>
+    </div>
+</body>
+</html>
