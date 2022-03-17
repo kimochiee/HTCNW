@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table-layout</title>
+    <style>
+        ⋆ {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+        }
+        .wrapper {
+            width: 1089px;
+            height: 600px;
+            margin: 0 auto;
+        }
+        .div-box {
+            width: 100%;
+            height: 100%;       
+        }
+        .div1, .div2 {
+            height: 50%;
+            width: 100%;
+        }
+        .div1 {
+            background-color: pink;
+        }
+        .div2 {
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <table style="width: 100%;height: 600px;">
+            <thead style="width: 100%;height: 200px;">
+                <tr>
+                    <th colspan="2" style="background-color: red;"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="width: 20%;background-color: yellow;height: 100%;"></td>
+                    <td style="width: calc(1089px - 30px - calc(1089⋆20/100));background-color: green;height: 380px;display: flex;align-items: center;padding: 10px 20px 10px 10px;">
+                        <div class="div-box">
+                            <div class="div1"></div>
+                            <div class="div2"></div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
