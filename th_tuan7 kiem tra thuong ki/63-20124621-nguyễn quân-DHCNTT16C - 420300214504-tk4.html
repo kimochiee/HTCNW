@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style-type: none;
+        }
+        a {
+            text-decoration: none;
+        }
+        button {
+            cursor: pointer;
+        }
+        .wrapper {
+            padding: 0 auto;
+            margin: 0 auto;
+            width: 960px;
+            border: 1px solid rgb(6, 6, 14);
+            color: gray;
+        }
+        header {
+            height: 100px;
+            background-color: #294e79;
+            position: relative;
+            color: white;
+        }
+        header img {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        header form {
+            position: absolute;
+            top: 10px;
+            left: 700px;
+        }
+        header h1 {
+            position: absolute;
+            top: 20px;
+            left: 80px;
+        }
+        header p {
+            position: absolute;
+            top: 60px;
+            left: 80px;
+        }
+        .menu-parent {
+            position: absolute;
+            display: flex;
+            right: 10px;
+            bottom: 10px;
+        }
+        .menu-parent li {
+            padding: 10px;
+            margin: 0 10px;
+            background-color: #3d73b1;
+            border: 1px solid white;
+            cursor: pointer;
+        }
+        .menu-parent li:hover {
+            background-color: blue;
+        }
+        .menu-parent li a {
+            color: white;
+        }
+        .menu-parent li:nth-child(4) {
+            position: relative;
+        }
+        .menu-parent li:nth-child(4):hover .menu-child {
+            display: block !important;
+        }
+        .menu-child {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            display: none;
+        }
+        .menu-child li {
+            margin: 0;
+        }
+        content {
+            display: flex;
+        }
+        section {
+            width: 70%;
+            padding: 40px 40px 20px 10px;
+        }
+        section > form {
+            width: 60%;
+            padding-right: 40px;
+            float: left;
+        }
+        textarea {
+            background-color: #f7f7f7;
+            border: 1px solid gray;
+        }
+        section > form > p{
+            color: red;
+            text-shadow: 4px 4px 5px green;
+        }
+        .section-right {
+            width: 40%;
+            float: left;
+        }
+        .form-row {
+            line-height: 30px;
+        }
+        .form-col {
+            width: 50%;
+            float: left;
+        }
+        aside {
+            width: 30%;
+            margin: 30px 1%;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+        aside img {
+            width: 230px;
+            margin-top: 20px;
+            padding: 3px;
+            border: 1px solid gray;
+        }
+        p {
+            margin-top: 10px;
+            text-align: justify;
+        }
+        aside p:last-child {
+            font-weight: bold;
+            float: right;
+            cursor: pointer;
+        }
+        aside p:last-child:hover {
+            color: blue;
+        }
+        h3 {
+            border-bottom: 1px dashed gray;
+            line-height: 40px;
+        }
+        footer {
+            clear: both;
+            background-color: #294e79;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+        }
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <img style="width: 52px; height: 62px;" src="https://addons-media.operacdn.com/media/CACHE/images/themes/95/78195/1.0-rev1/images/f1b54fe9-e138-44e6-929b-182bb1e82a68/e692a2c2fe07202eda545c69833230bd.jpg">
+            <h1>flower box</h1>
+            <p>...to get your daily dose of luxury roses</p>
+            <form action="" method="post">
+                <input type="text" name="txt5ch" id="txt5ch">
+                <input type="button" value="GO">
+            </form>
+            <ul class="menu-parent">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Promotion</a></li>
+                <li><a href="#">Gift Baskets</a></li>
+                <li><a href="#">Flower services</a>
+                    <ul class="menu-child">
+                        <li><a href="#">Flower for wedding</a></li>
+                        <li><a href="#">Flower for conference</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </header>
+        <content>
+            <section>
+                <h3>why not contact us today</h3>
+                <form action="">
+                    <p><i>for flower 360 shoppers, that mean not only can you send your friends and loved ones the highest quality flowers found on online.</i></p>
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label for="txtName">Name: </label>
+                            <input type="text" id="txtName">
+                        </div>
+                        <div class="form-col">
+                            <label for="txtNEmail">Email: </label>
+                            <input type="email" id="txtEmail">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label for="txtName">Telephone: </label>
+                            <input type="text" id="txtName">
+                        </div>
+                        <div class="form-col">
+                            <label for="txtNEmail">Subject: </label>
+                            <input type="email" id="txtEmail">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                            <label for="txtMessage">Message: </label>
+                            <textarea type="text" cols="40" rows="5" id="txtMessage"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <button type="submit">submit</button>
+                        <button type="reset">reset</button>
+                    </div>
+                </form>
+
+                <div class="section-right">
+                    <h3>flowerBox 360 info!</h3>
+                    <p>Operating hour: <br> monday-friday: 9am-5pm <br>saturday: 9am-1pm<br>sunday: close<br>ORDER ONLINE 24/7 <br> <br></p>
+                    <p>software engeering deft. <br> information technology falcuty. <br> first floor, H building <br> <br> </p>
+                    <p>12 nguyen van bao, ward 4 <br> go vap district <br> ho chi minh city <br> tel: 02834564536 <br> fax: 03454356456</p>
+                </div>
+            </section>
+            <aside>
+                <h3>Discounts and Specials</h3>
+                <img style="width: 230px; height: 90px;" src="https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__480.jpg" alt="">
+                <p>flowersbox 360 offers many great Discounts throughout the year, from coupons and coupon codes, to promo  and other savings.</p>
+                <p>Read more &#155;&#155;</p>
+            </aside>
+        </content>
+        <footer>
+            <p style="color: white;"><span>copyright &copy; 2017 - all right reserved -</span><span style="color: rgb(114, 189, 219);">software engeering deft- industrial university of ho chi minh city</span></p>
+        </footer>
+    </div>
+</body>
+</html>
