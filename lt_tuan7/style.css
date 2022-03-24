@@ -1,0 +1,28 @@
+* {
+    box-sizing: border-box;
+}
+
+.nav-item:hover {
+    background-color: blue;
+    cursor: pointer;
+}
+
+.nav-item:hover a,
+.nav-item:hover i {
+    color: white !important;
+    text-decoration: none;
+}
+
+table {
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+.form-group {
+    margin-bottom: 0 !important;
+}

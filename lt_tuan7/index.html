@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./bootstrap-4/css/bootstrap.min.css">
+    <script src="./jquery/jquery-3.6.0.min.js"></script>
+    <script src="./bootstrap-4/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./style.css">
+    <!---->
+    <script>
+        function KTTen() {
+            var kt= /^[A-Z][a-zA-Z]+(\s[A-Z][a-zA-Z]+)*$/;
+            if($('#txtTen').val() == '') {
+                $('#tbTen').html('buộc phải nhập');
+                return false;
+            } else if(!kt.test($('#txtTen').val())) {
+                $('#tbTen').html('* Chữ cái đầu của mỗi từ phải viết hoa !!');
+                return false;
+            };
+
+            $('#tbTen').html('*');
+            return true;
+        };
+
+        function KTDC() {
+            if($('#txtDC').val() == '') {
+                $('#tbDc').html('buộc phải nhập');
+                return false;
+            };
+
+            $('#tbDc').html('*');
+            return true;
+        };
+
+        function KTNgay() {
+            if($('#txtNgay').val() == '') {
+                $('#tbNgay').html('buộc phải nhập');
+                return false;
+            };
+
+            var day= new Date($('#txtNgay').val());
+            var today= new Date();
+            today.setDate(today.getDate()+3);
+
+            if (day<today) {
+                $('#tbNgay').html('Nhập ngày sau hiện tại 3 ngày');
+                return false;
+            };
+
+            $('#tbNgay').html('*');
+            return true;
+        };
+
+        function KTMail() {
+            var mail= /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)+(\.\w{2,3})+$/;
+            if($('#txtMail').val() == '') {
+                $('#tbMail').html('buộc phải nhập');
+                return false;
+            } else if(!mail.test($('#txtMail').val())) {
+                $('#tbMail').html('* Nhập đúng định dạng email');
+                return false;
+            };
+
+            $('#tbMail').html('*');
+            return true;
+        };
+
+        function KTSDT() {
+            var sdt= /^[0-9]{3}\-\d{4}\-\d{3}$/;
+            if($('#txtSDT').val() == '') {
+                $('#tbSDT').html('buộc phải nhập');
+                return false;
+            };
+
+            if (!sdt.test($('#txtSDT').val())) {
+                $('#tbSDT').html('nhập theo định dạng 000-0000-000');
+                return false;
+            }
+
+            $('#tbSDT').html('*');
+            return true;
+        };
+    </script>
+</head>
+<body>
+    <div class="container-fluid">
+        <header>
+            <div class="row">
+                <img class="w-100" src="./img/Banner.png">
+            </div>
+        </header>
+
+        <nav>
+            <div class="row bg-warning">
+                <div class="p-3 nav-item">
+                    <a href="#">HOME</a>
+                </div>
+                <div class="p-3 nav-item">
+                    <a href="#">SHOP</a>
+                </div>
+                <div class="p-3 nav-item">
+                    <a href="#">BLOG</a>
+                </div>
+                <div class="p-3 nav-item">
+                    <a href="#">ARTICLE</a>
+                </div>
+                <div class="p-3 nav-item">
+                    <a href="#">SERVICES</a>
+                    <i class="fa-solid fa-arrow-down" style="color: #007bff;"></i>
+                </div>
+            </div>
+        </nav>
+
+        <main>
+            <div class="row">
+                <div class="col-3">
+                    <img class="w-100" src="./img/left.png">
+                </div>
+                <div class="col-9 p-2">
+                    <h1 class="text-center text-danger">Customer Ordered List</h1>
+                    <table>
+                        <tr>
+                            <td>#</td>
+                            <td>Name</td>
+                            <td>Address</td>
+                            <td>Delivery</td>
+                            <td>Email</td>
+                            <td>Telephone number</td>
+                        </tr>
+                    </table>
+
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                        tạo modal
+                    </button>
+                    
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h3 class="modal-title text-danger" id="exampleModalLabel">Customer Information</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="txtTen" class="control-label col-12">Customer Name</label>
+                                    <div class="col-12">
+                                        <input type="text" onblur="KTTen()" class="form-control" id="txtTen">
+                                        <span id="tbTen" class="text-danger">*</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtDC" class="control-label col-12">Address</label>
+                                    <div class="col-12">
+                                        <input type="text" onblur="KTDC()" class="form-control" id="txtDC">
+                                        <span id="tbDc" class="text-danger">*</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtNgay" class="control-label col-12">Delivery Date</label>
+                                    <div class="col-12">
+                                        <input type="text" onblur="KTNgay()" class="form-control" id="txtNgay" value="dd/mm/yyyy">
+                                        <span id="tbNgay" class="text-danger">*</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtMail" class="control-label col-12">Email</label>
+                                    <div class="col-12">
+                                        <input type="text" onblur="KTMail()" class="form-control" id="txtMail">
+                                        <span id="tbMail" class="text-danger">*</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtSDT" class="control-label col-12">Telephone number</label>
+                                    <div class="col-12">
+                                        <input type="text" onblur="KTSDT()" class="form-control" id="txtSDT">
+                                        <span id="tbSDT" class="text-danger">*</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-danger">Save</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
