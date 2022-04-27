@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <style>
+        [class*="col-"] {
+            padding: 0 !important;
+        }
+        ul {
+            list-style-type: none;
+        }
+        a {
+            text-decoration: none;
+        }
+        .nav-item:hover .nav-link {
+            background-color: #f8f8f8;
+        }
+        .main-nav {
+            position: relative;
+        }   
+        .main-nav:hover .sub-nav {
+            display: block;
+        }
+        .sub-nav {
+            display: none;
+            position: absolute;
+            top: 100%;
+            z-index: 999;
+            border: 1px solid #ccc;
+            padding: 0;
+        } 
+    </style>
+    <script>
+        $(document).ready(()=> {
+            var i=2;
+
+            $('#btnDK').click(()=> {
+                $("#myModal").modal();
+            })
+
+            function kiemTraMaSV() {
+                const mauKT = /^[1-9]{1}[0-9]{9}$/;
+                const chuoi = $('#txtMaSV').val();
+                if (mauKT.test(chuoi) == true) {
+                    console.log('bạn nhập mã sinh viên đúng');
+                    return true;
+                }
+                else {
+                    console.log('bạn nhập mã sinh viên sai hoặc để trống');
+                    return false
+                }
+
+                return true;
+            }
+            $('#txtMaSV').blur(kiemTraMaSV);
+
+            function kiemTraHoTen() {
+                const mauKT= /^([A-Z]{1}[a-z]+)((\s{1}[A-Z]{1}[a-z]+){1,})$/;
+                const chuoi= $('#txtHT').val();
+                if (mauKT.test(chuoi) == true) {
+                    console.log('bạn nhập họ tên đúng');
+                    return true;
+                }
+                else {
+                    console.log('bạn nhập họ tên sai hoặc để trống');
+                    return false
+                }
+
+                return true;
+            }
+            $('#txtHT').blur(kiemTraHoTen);
+
+            function kiemTraNTG() {
+                if ($('#txtDate').val() == '') {
+                    console.log('không để trống')
+                    return false;
+                } 
+                const today = new Date();
+                const ntt = new Date($('#txtDate').val());
+                if (today > ntt) {
+                    console.log('phải sau ngày hiện tại 7 ngày')
+                    return false;
+                }
+                else {
+                    console.log('bạn nhập ngày tham gia đúng');
+                    return true;
+                }
+
+                return true;
+            }
+            $('#txtDate').blur(kiemTraNTG);
+
+            function kiemTraEmail() {
+                const mauKT= /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)+(\.\w{2,3})+$/;
+                const chuoi= $('#txtEmail').val();
+                if (mauKT.test(chuoi) == true) {
+                    console.log('bạn nhập email đúng');
+                    return true;
+                }
+                else {
+                    console.log('bạn nhập email sai hoặc để trống');
+                    return false
+                }
+
+                return true;
+            }
+            $('#txtEmail').blur(kiemTraEmail);
+
+            function kiemTraSDT() {
+                const mauKT= /^0\d{3}-\d{3}-\d{3}$/;
+                const chuoi= $('#txtSDT').val();
+
+                if (mauKT.test(chuoi) == true) {
+                    console.log('bạn nhập số điện thoại đúng');
+                    return true;
+                }
+                else {
+                    console.log('bạn nhập số điện thoại sai hoặc để trống');
+                    return false;
+                }
+
+                return true;
+            }
+            $('#txtSDT').blur(kiemTraSDT);
+
+            $('#btnSubDK').click(()=> {
+                if (kiemTraMaSV() == true && kiemTraHoTen() == true && kiemTraEmail() == true && kiemTraNTG() == true && kiemTraSDT() == true) {
+                    row = '<tr>';
+                    row += '<td>' + (i++) + '</td>';
+                    row += '<td>' + $('#txtMaSV').val() + '</td>';
+                    row += '<td>' + $('#txtHT').val() + '</td>';
+                    row += '<td>' + $('#txtDate').val() + '</td>';
+                    row += '<td>' + $('#txtEmail').val() + '</td>';
+                    row += '<td>' + $('#txtSDT').val() + '</td>';
+                    $('tbody').append(row);
+                    $('#myModal').modal('hide');
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                <img src="../images/logo.PNG" alt="">
+            </div>
+            <div class="col-md-10 text-right" style="background-color: #f8f8f8;">
+                <h3>TRƯỜNG ĐẠI HỌC CÔNG NGHIỆP THÀNH PHỐ HỒ CHÍ MINH</h3>
+                <h4 class="text-danger">ĐOÀN THANH NIÊN ĐẠI HỌC CÔNG NGHIỆP THÀNH PHỐ HÒ CHÍ MINH</h4>
+            </div>
+        </div>
+
+        <div class="row">
+            <nav class="navbar navbar-expand-md bg-info col-md-12 justify-content-start">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a href="#" class="nav-link text-dark">TRANG CHỦ</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-dark">ĐOÀN THỂ</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-dark">SỰ KIỆN</a></li>
+                    <li class="nav-item main-nav"><a href="#" class="nav-link text-dark">HOẠT ĐỘNG</a>
+                        <ul class="sub-nav bg-white">
+                            <li><a href="#" class="text-dark" id="btnDK">ĐĂNG KÝ</a></li>
+                            <li><a href="#" class="text-dark">ĐĂNG NHẬP</a></li>
+                        </ul>    
+                    </li>                 
+                </ul>
+            </nav>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <aside>
+                    <img src="../images/ngayhoithanhnien.JPG" class="rounded-circle" width="100%">
+                </aside>
+            </div>
+            <div class="col-md-6">
+                <h3 class="mt-3 mx-3">TIN NỔI BẬT</h3>
+                <ul class="bg-info mx-3">
+                    <li>I. mùa hè xanh</li>
+                    <li>II. thanh niên tình nguyện</li>
+                    <li>III. tấm lòng vàng</li>
+                    <li>IV. hiến máu nhân đạo</li>
+                    <li>V. bảo vệ môi trường sạch</li>
+                    <li>VI. thi đua lập thành tích chào mừng 26/3</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <h3 class="col-md-12 text-center">DANH SÁCH ĐĂNG KÝ HOẠT ĐỘNG  MÙA HÈ XANH</h3>
+            <div class="col-md-12">
+                <section>
+                    <table class="table table-striped" id="danhsach">
+                        <thead>
+                            <tr>
+                                <td>STT</td>
+                                <td>MÃ SV</td>
+                                <td>TÊN SV</td>
+                                <td>Ngày tham gia</td>
+                                <td>EMAIL</td>
+                                <td>Số điện thoại</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>012345678</td>
+                                <td>Tran Anh Khang</td>
+                                <td>2021-06-25</td>
+                                <td>Trananh@gmail.com</td>
+                                <td>0979-788-849</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+        </div>
+
+        <div class="row bg-primary">
+            <div class="col-md-12">
+                <p class="text-white text-right m-0 py-2">@ 2020-2021 đoàn thanh niên - trường đại học công nghiệp thành phố hồ chí minh</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" role="dialog" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header justify-content-center">
+                    <h2 class="text-danger">THÔNG TIN ĐĂNG KÝ</h2>
+                </div>
+                <div class="modal-body">
+                    <form action="" method="get" class="form-horizontal">
+                        <div class="form-group">
+                            <label for="txtMaSV">Mã sinh viên</label>
+                            <input type="text" id="txtMaSV" class="form-control" placeholder="Mã sinh viên">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="txtHT">Họ tên:</label>
+                            <input type="text" id="txtHT" class="form-control" placeholder="Họ tên">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="txtDate">Ngày tham gia:</label>
+                            <input type="date" id="txtDate" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="txtEmail">Email:</label>
+                            <input type="email" id="txtEmail" class="form-control" placeholder="Địa chỉ email">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="txtSDT">Số điện thoại:</label>
+                            <input type="text" id="txtSDT" class="form-control" placeholder="Số điện thoại">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="submit" id="btnSubDK" class="btn btn-danger" style="width: 100%;">Đăng ký</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
